@@ -29,7 +29,7 @@ services:
       server.jar nogui
     restart: unless-stopped
     volumes:
-      - /a/zenmc/survival24h:/data
+      - /a/zenmc/zenmc01:/data
     networks:
       - minecraft
     environment:
