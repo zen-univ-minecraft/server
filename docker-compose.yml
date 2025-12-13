@@ -64,7 +64,7 @@ services:
       server.jar nogui
     restart: unless-stopped
     volumes:
-      - /a/zenmc/zenmc01:/data
+      - /a/zenmc/zenmc02:/data
     networks:
       - minecraft
     environment:
