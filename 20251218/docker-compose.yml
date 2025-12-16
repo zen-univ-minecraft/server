@@ -1,6 +1,6 @@
 services:
-  zenmc01:
-    container_name: minecraft_zenmc01
+  zenmc03:
+    container_name: minecraft_zenmc03
     image: eclipse-temurin:21-jre-alpine
     working_dir: /data
     command: >
@@ -29,19 +29,19 @@ services:
       server.jar nogui
     restart: unless-stopped
     volumes:
-      - /a/zenmc/zenmc01:/data
+      - /a/zenmc/20251218/a:/data
     networks:
       - minecraft
     environment:
       - TZ=Asia/Tokyo
-  zenmc02:
-    container_name: minecraft_zenmc02
+  zenmc04:
+    container_name: minecraft_zenmc04
     image: eclipse-temurin:21-jre-alpine
     working_dir: /data
     command: >
       java
-      -Xms2G
-      -Xmx2G
+      -Xms6G
+      -Xmx6G
       -XX:+UseG1GC
       -XX:MaxGCPauseMillis=130
       -XX:+UnlockExperimentalVMOptions
@@ -64,7 +64,7 @@ services:
       server.jar nogui
     restart: unless-stopped
     volumes:
-      - /a/zenmc/zenmc02:/data
+      - /a/zenmc/20251218/b:/data
     networks:
       - minecraft
     environment:
