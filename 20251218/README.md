@@ -11,3 +11,7 @@ Java Edition 1.21.8
 仮です。
 
 20251218 
+
+## address
+
+mc.lkjsxc.com
