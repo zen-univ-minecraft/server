@@ -1,0 +1,75 @@
+services:
+  zenmc03:
+    container_name: minecraft_zenmc03
+    image: eclipse-temurin:21-jre-alpine
+    working_dir: /data
+    command: >
+      java
+      -Xms6G
+      -Xmx6G
+      -XX:+UseG1GC
+      -XX:MaxGCPauseMillis=130
+      -XX:+UnlockExperimentalVMOptions
+      -XX:+DisableExplicitGC
+      -XX:+AlwaysPreTouch
+      -XX:G1NewSizePercent=28
+      -XX:G1HeapRegionSize=16M
+      -XX:G1ReservePercent=20
+      -XX:G1MixedGCCountTarget=3
+      -XX:InitiatingHeapOccupancyPercent=10
+      -XX:G1MixedGCLiveThresholdPercent=90
+      -XX:G1RSetUpdatingPauseTimePercent=0
+      -XX:SurvivorRatio=32
+      -XX:MaxTenuringThreshold=1
+      -XX:G1SATBBufferEnqueueingThresholdPercent=30
+      -XX:G1ConcMarkStepDurationMillis=5
+      -XX:G1ConcRSHotCardLimit=16
+      -XX:G1ConcRefinementServiceIntervalMillis=150
+      -jar
+      server.jar nogui
+    restart: unless-stopped
+    volumes:
+      - /a/zenmc/zenmc03:/data
+    networks:
+      - minecraft
+    environment:
+      - TZ=Asia/Tokyo
+  zenmc04:
+    container_name: minecraft_zenmc04
+    image: eclipse-temurin:21-jre-alpine
+    working_dir: /data
+    command: >
+      java
+      -Xms2G
+      -Xmx2G
+      -XX:+UseG1GC
+      -XX:MaxGCPauseMillis=130
+      -XX:+UnlockExperimentalVMOptions
+      -XX:+DisableExplicitGC
+      -XX:+AlwaysPreTouch
+      -XX:G1NewSizePercent=28
+      -XX:G1HeapRegionSize=16M
+      -XX:G1ReservePercent=20
+      -XX:G1MixedGCCountTarget=3
+      -XX:InitiatingHeapOccupancyPercent=10
+      -XX:G1MixedGCLiveThresholdPercent=90
+      -XX:G1RSetUpdatingPauseTimePercent=0
+      -XX:SurvivorRatio=32
+      -XX:MaxTenuringThreshold=1
+      -XX:G1SATBBufferEnqueueingThresholdPercent=30
+      -XX:G1ConcMarkStepDurationMillis=5
+      -XX:G1ConcRSHotCardLimit=16
+      -XX:G1ConcRefinementServiceIntervalMillis=150
+      -jar
+      server.jar nogui
+    restart: unless-stopped
+    volumes:
+      - /a/zenmc/zenmc04:/data
+    networks:
+      - minecraft
+    environment:
+      - TZ=Asia/Tokyo
+
+networks:
+  minecraft:
+    external: true
