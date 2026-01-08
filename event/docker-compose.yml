@@ -40,8 +40,8 @@ services:
     working_dir: /data
     command: >
       java
-      -Xms2G
-      -Xmx2G
+      -Xms6G
+      -Xmx6G
       -XX:+UseG1GC
       -XX:MaxGCPauseMillis=130
       -XX:+UnlockExperimentalVMOptions
